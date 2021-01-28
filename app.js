@@ -19,8 +19,17 @@ app.use(morgan("dev"));
 
 app.use(localsMiddlewares);
 
+app.use(videoControl);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+
+function videoControl(req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' https://archive.org"
+  );
+  return next();
+}
 
 export default app;
