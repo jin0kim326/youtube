@@ -10,13 +10,14 @@ export const postJoin = (req, res) => {
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
+    // 사용자 등록
+    // 사용자 로그인
     res.redirect(routes.home);
   }
 };
 
 export const login = (req, res) => res.render("login", { pageTitle: "Login" });
-export const logout = (req, res) =>
-  res.render("logout", { pageTitle: "logout" });
+export const logout = (req, res) => res.redirect(routes.home);
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 export const userDetail = (req, res) =>
   res.render("userDetail", { pageTitle: `User Detail` });
