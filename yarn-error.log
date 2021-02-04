@@ -1,0 +1,62 @@
+Arguments: 
+  /usr/local/Cellar/node/15.3.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add multar
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.3.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/multar: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
+      at Request.emit (node:events:376:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141721:10)
+      at Request.emit (node:events:376:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141643:12)
+      at Object.onceWrapper (node:events:482:28)
+      at IncomingMessage.emit (node:events:388:22)
+      at endReadableNT (node:internal/streams/readable:1294:12)
+      at processTicksAndRejections (node:internal/process/task_queues:80:21)
+
+npm manifest: 
+  {
+    "name": "youtube",
+    "version": "1.0.0",
+    "description": "Cloning Youtube with VanilaJS and NodeJS",
+    "main": "index.js",
+    "author": "jinyoungnpm Kim",
+    "license": "ISC",
+    "scripts": {
+      "start": "nodemon --exec babel-node init.js --delay 2"
+    },
+    "dependencies": {
+      "@babel/core": "^7.12.10",
+      "@babel/node": "^7.12.10",
+      "@babel/preset-env": "^7.12.11",
+      "body-parser": "^1.19.0",
+      "cookie-parser": "^1.4.5",
+      "dotenv": "^8.2.0",
+      "express": "^4.16.4",
+      "helmet": "^4.4.1",
+      "mongoose": "^5.11.14",
+      "morgan": "^1.10.0",
+      "pug": "^3.0.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.7"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
