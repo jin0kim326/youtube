@@ -31,7 +31,7 @@ passport.use(
       clientSecret: process.env.KAKAO_SECRET,
       callbackURL: `http://localhost:4000${routes.kakaoCallback}`,
     },
-    kakaoLoginCallback //ㄴㅇㅇ
+    kakaoLoginCallback //ㄴㅇㅇㄴ
   )
 );
 passport.serializeUser(User.serializeUser());
