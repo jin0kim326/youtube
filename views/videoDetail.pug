@@ -1,14 +1,15 @@
 extends layouts/main
+include mixins/videoPlayer
 
 block content
     .video-detail__container
-        .video__player
-            video(src=`/${video.fileUrl}`)
-        .video__info
-            if loggedUser
-                if video.creator.id === loggedUser.id
-                    a(href=routes.editVideo(video.id))
-                        button Edit video
+        +videoPlayer({
+            src:video.fileUrl
+        })
+        .video__info            
+            if loggedUser && video.creator.id === loggedUser.id
+                a(href=routes.editVideo(video.id))
+                    button Edit video
             h5.video__title=video.title
             p.video__description=video.description
             if video.views === 1
