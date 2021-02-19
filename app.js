@@ -14,6 +14,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import routes from "./routes";
 import { localsMiddlewares } from "./middlewares";
+import apiRouter from "./routers/apiRouter";
 
 dotenv.config();
 
@@ -46,6 +47,7 @@ app.use(videoControl);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
 
 function videoControl(req, res, next) {
   res.setHeader(
