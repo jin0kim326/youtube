@@ -35,6 +35,14 @@ var currentTime = document.querySelector("#currentTime");
 var totalTime = document.querySelector("#totalTime");
 var volumeRange = document.querySelector("#jsVolume");
 
+var registerView = function registerView() {
+  var videoId = window.location.href.split("/videos/")[1];
+  console.log(videoId);
+  fetch("/api/".concat(videoId, "/view"), {
+    method: "POST"
+  });
+};
+
 var formatDate = function formatDate(seconds) {
   var secondsNumber = parseInt(seconds, 10);
   var hours = Math.floor(secondsNumber / 3600);
@@ -101,6 +109,7 @@ function setTotalTime() {
 }
 
 function handleEnded() {
+  registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }

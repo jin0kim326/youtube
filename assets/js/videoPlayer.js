@@ -7,6 +7,14 @@ const currentTime = document.querySelector("#currentTime");
 const totalTime = document.querySelector("#totalTime");
 const volumeRange = document.querySelector("#jsVolume");
 
+const registerView = () => {
+  const videoId = window.location.href.split("/videos/")[1];
+  console.log(videoId);
+  fetch(`/api/${videoId}/view`, {
+    method: "POST",
+  });
+};
+
 const formatDate = (seconds) => {
   const secondsNumber = parseInt(seconds, 10);
   let hours = Math.floor(secondsNumber / 3600);
@@ -69,6 +77,7 @@ function setTotalTime() {
   totalTime.innerHTML = totalTimeString;
 }
 function handleEnded() {
+  registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }
