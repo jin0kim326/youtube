@@ -4,7 +4,9 @@ import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({}).sort({ _id: -1 });
+    const videos = await Video.find({}).populate("creator").sort({ _id: -1 });
+    console.log(videos[0].creator.name);
+    console.log(videos[0].creator);
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);

@@ -1,6 +1,7 @@
 .header {
-  background-color: $red;
+  background-color: $bg-header-dark;
   margin-bottom: 50px;
+  padding: 8px 0px;
   .header__wrapper {
     padding: 5px 0px;
     width: 100%;
@@ -11,7 +12,8 @@
     align-items: center;
     .header__column {
       i {
-        color: white;
+        color: $red;
+        background-color: white;
         font-size: 30px;
       }
       &:nth-child(2) {

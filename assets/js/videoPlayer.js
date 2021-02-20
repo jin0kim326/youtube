@@ -9,7 +9,6 @@ const volumeRange = document.querySelector("#jsVolume");
 
 const registerView = () => {
   const videoId = window.location.href.split("/videos/")[1];
-  console.log(videoId);
   fetch(`/api/${videoId}/view`, {
     method: "POST",
   });

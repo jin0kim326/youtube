@@ -126,7 +126,6 @@ var volumeRange = document.querySelector("#jsVolume");
 
 var registerView = function registerView() {
   var videoId = window.location.href.split("/videos/")[1];
-  console.log(videoId);
   fetch("/api/".concat(videoId, "/view"), {
     method: "POST"
   });
