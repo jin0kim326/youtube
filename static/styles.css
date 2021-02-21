@@ -214,7 +214,7 @@ textarea,
 
 button {
   border: none;
-  background-color: #3498db;
+  background-color: #ea232c;
   color: white; }
 
 button.delete {
@@ -621,52 +621,45 @@ footer {
           margin-bottom: 15px; }
 
 .user-profile {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-     -moz-box-orient: vertical;
-     -moz-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+  width: 100%; }
   .user-profile .user-profile__header {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-       -moz-box-orient: vertical;
-       -moz-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-bottom: 18px; }
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 24px; }
+    .user-profile .user-profile__header .user-profile__header-column:nth-child(1) {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
     .user-profile .user-profile__header .profile__username {
-      font-size: 18px;
-      margin-top: 15px; }
+      font-size: 24px;
+      margin-left: 10px;
+      color: #ffffff; }
   .user-profile .user-profile__btns {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: end;
+       -moz-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -674,13 +667,16 @@ footer {
        -moz-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+       -moz-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
     .user-profile .user-profile__btns a:not(:last-child) {
-      margin-bottom: 20px; }
+      margin-bottom: 10px; }
+    .user-profile .user-profile__btns button {
+      font-size: 14px;
+      font-weight: 500; }
 
 
 /*# sourceMappingURL=styles.css.map*/

@@ -1,24 +1,31 @@
 .user-profile {
   width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   .user-profile__header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 18px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .user-profile__header-column:nth-child(1) {
+      display: flex;
+      align-items: center;
+    }
     .profile__username {
-      font-size: 18px;
-      margin-top: 15px;
+      font-size: 24px;
+      margin-left: 10px;
+      color: $font-darkmode;
     }
   }
   .user-profile__btns {
     display: flex;
+    justify-content: end;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     a:not(:last-child) {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+    button {
+      font-size: 14px;
+      font-weight: 500;
     }
   }
 }

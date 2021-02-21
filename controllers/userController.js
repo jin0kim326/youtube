@@ -1,6 +1,7 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
+import Video from "../models/Video";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
@@ -106,21 +107,42 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const getMe = (req, res) => {
-  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+const findBestVideoId = (user) => {
+  let maxViews = 0;
+  let willReturnId;
+
+  user.videos.forEach((video) => {
+    if (video.views > maxViews) {
+      maxViews = video.views;
+      willReturnId = video.id;
+    }
+  });
+  return willReturnId;
 };
+
+export const getMe = async (req, res) => {
+  const user = await User.findById(req.user.id).populate("videos");
+  const bestVideo2 = await Video.findById(findBestVideoId(user));
+  const bestVideo = [];
+  bestVideo.push(bestVideo2);
+  // console.log(bestVideo);
+  // console.log(bestVideo.id);//
+  console.log(bestVideo);
+  res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
+};
+
 export const userDetail = async (req, res) => {
   const {
     params: { id },
   } = req;
   try {
     const user = await User.findById(id).populate("videos");
-    console.log(user);
-    res.render("userDetail", { pageTitle: "User Detail", user });
+    res.render("userDetail", { pageTitle: "Profile", user });
   } catch (error) {
     res.redirect(routes.home);
   }
 };
+
 export const getEditProfile = (req, res) => {
   res.render("editProfile", { pageTitle: "Edit Profile" });
 };
@@ -149,7 +171,6 @@ export const postChangePassword = async (req, res) => {
     body: { oldPassword, newPassword, newPassword1 },
   } = req;
   try {
-    console.log(req.user);
     if (newPassword !== newPassword1) {
       res.status(400);
       res.redirect(`${routes.users}${routes.changePassword}`);

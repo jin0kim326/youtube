@@ -27,14 +27,14 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
 globalRouter.get(routes.logout, logout);
 
-globalRouter.get(routes.me, getMe);
-
 globalRouter.get(routes.gitHub, gitHubLogin);
 globalRouter.get(
   routes.gitHubCallback,
   passport.authenticate("github", { failureRedirect: routes.login }),
   postGitHubLogin
 );
+
+globalRouter.get(routes.me, getMe);
 
 globalRouter.get(routes.kakao, kakaoLogin);
 globalRouter.get(
