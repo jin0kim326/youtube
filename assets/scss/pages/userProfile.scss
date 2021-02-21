@@ -15,6 +15,28 @@
       color: $font-darkmode;
     }
   }
+
+  .user-profile__main {
+    display: flex;
+    height: 340px;
+    padding: 40px 0px;
+    border-bottom: 1px solid $black;
+    margin-bottom: 30px;
+    .main-video {
+      .videoPlayer {
+        width: 420px;
+        height: 240px;
+      }
+    }
+  }
+
+  .uploaded-video {
+    margin-bottom: 20px;
+    span {
+      font-size: 16px;
+      color: $font-darkmode;
+    }
+  }
   .user-profile__btns {
     display: flex;
     justify-content: end;

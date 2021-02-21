@@ -1,9 +1,10 @@
 extends layouts/main
 include mixins/videoBlock
+include mixins/videoPlayer
 
 block content
     .user-profile
-        .user-profile__header
+        header.user-profile__header
             .user-profile__header-column
                 img.u-avatar(src=user.avatarUrl)
                 h4.profile__username=user.name
@@ -14,15 +15,18 @@ block content
                         button ✏️ Edit Profile
                     a(href=`/users${routes.changePassword}`)
                         button 🔒 Change Password
-        .main-video
-            each item in bestVideo
-                +videoBlock({
-                    id:item.id,
-                    title:item.title,
-                    views:item.views,
-                    videoFile:item.fileUrl,
+        .user-profile__main
+            .main-video
+                +videoPlayer({
+                    src:bestVideo.fileUrl
                 })
-        .home-videos
+            .main-video__metadata
+                h3.videoBlock__title=bestVideo.title
+                h3.videoBlock__views 조회수#{bestVideo.views}회
+                p.videoBlock__description=bestVideo.description
+        .uploaded-video
+                span 업로드한 동영상        
+        article.home-videos
             each item in user.videos
                 +videoBlock({
                     id:item.id,

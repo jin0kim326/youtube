@@ -116,18 +116,18 @@ const findBestVideoId = (user) => {
       maxViews = video.views;
       willReturnId = video.id;
     }
+
+    if (maxViews === 0) {
+      willReturnId = video.id;
+    }
   });
+  console.log(willReturnId);
   return willReturnId;
 };
 
 export const getMe = async (req, res) => {
   const user = await User.findById(req.user.id).populate("videos");
-  const bestVideo2 = await Video.findById(findBestVideoId(user));
-  const bestVideo = [];
-  bestVideo.push(bestVideo2);
-  // console.log(bestVideo);
-  // console.log(bestVideo.id);//
-  console.log(bestVideo);
+  const bestVideo = await Video.findById(findBestVideoId(user));
   res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
 };
 
@@ -137,7 +137,8 @@ export const userDetail = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id).populate("videos");
-    res.render("userDetail", { pageTitle: "Profile", user });
+    const bestVideo = await Video.findById(findBestVideoId(user));
+    res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
   } catch (error) {
     res.redirect(routes.home);
   }
