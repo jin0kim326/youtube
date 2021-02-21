@@ -12,9 +12,13 @@
     align-items: center;
     .header__column {
       i {
+        position: relative;
         color: $red;
-        background-color: white;
         font-size: 30px;
+      }
+      img {
+        width: 120px;
+        height: 25px;
       }
       &:nth-child(2) {
         width: 100%;
@@ -42,9 +46,10 @@
           color: $black;
           font-weight: 600;
           max-width: none;
+          background-color: $bg-dark;
           &::placeholder {
             font-weight: 300;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(240, 240, 240, 0.7);
           }
         }
       }

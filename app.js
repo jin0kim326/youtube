@@ -24,6 +24,7 @@ const CokieStore = MongoStore(session);
 
 app.use(helmet());
 app.set("view engine", "pug");
+app.use("/imgs", express.static("imgs"));
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));
 app.use(bodyParser.json());

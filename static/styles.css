@@ -241,9 +241,12 @@ input[type="submit"] {
         -ms-flex-align: center;
             align-items: center; }
     .header .header__wrapper .header__column i {
+      position: relative;
       color: #ea232c;
-      background-color: white;
       font-size: 30px; }
+    .header .header__wrapper .header__column img {
+      width: 120px;
+      height: 25px; }
     .header .header__wrapper .header__column:nth-child(2) {
       width: 100%;
       justify-self: center; }
@@ -271,25 +274,26 @@ input[type="submit"] {
         font-size: 14px;
         color: #444444;
         font-weight: 600;
-        max-width: none; }
+        max-width: none;
+        background-color: #101010; }
         .header .header__wrapper .header__column form input::-webkit-input-placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
         .header .header__wrapper .header__column form input:-moz-placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
         .header .header__wrapper .header__column form input::-moz-placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
         .header .header__wrapper .header__column form input:-ms-input-placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
         .header .header__wrapper .header__column form input::-ms-input-placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
         .header .header__wrapper .header__column form input::placeholder {
           font-weight: 300;
-          color: rgba(0, 0, 0, 0.7); }
+          color: rgba(240, 240, 240, 0.7); }
 
 footer {
   margin: 50px 0;
