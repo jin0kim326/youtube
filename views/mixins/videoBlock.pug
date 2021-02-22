@@ -8,4 +8,6 @@ mixin videoBlock(video = {})
                 .videoBlock__column    
                     h3.videoBlock__title=video.title
                     h3.videoBlock__creator=video.creatorName
-                    h3.videoBlock__views 조회수#{video.views}회
+                    .viewsAndTime
+                        span.videoBlock__views 조회수 #{video.views}회 
+                        span.videoBlock__time=video.uploadTime

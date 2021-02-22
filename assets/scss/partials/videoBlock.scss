@@ -31,8 +31,14 @@
         color: $metadata;
         margin-bottom: 4px;
       }
-      .videoBlock__views {
+      .videoBlock__views,
+      .videoBlock__time {
         color: $metadata;
+      }
+
+      .videoBlock__views::after {
+        content: "•";
+        margin: 0px 4px;
       }
     }
   }

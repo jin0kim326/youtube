@@ -28,6 +28,27 @@
         height: 240px;
       }
     }
+
+    .main-video__metadata {
+      display: flex;
+      flex-direction: column;
+
+      margin-left: 24px;
+      .videoBlock__title {
+        color: $font-darkmode;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .videoBlock__views {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .videoBlock__description {
+        font-size: 13px;
+      }
+    }
   }
 
   .uploaded-video {

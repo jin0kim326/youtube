@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -466,8 +467,12 @@ footer {
     .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__creator {
       color: #aaaaaa;
       margin-bottom: 4px; }
-    .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__views {
+    .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__views,
+    .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__time {
       color: #aaaaaa; }
+    .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__views::after {
+      content: "•";
+      margin: 0px 4px; }
 
 .videoPlayer {
   position: relative; }
@@ -662,6 +667,29 @@ footer {
     .user-profile .user-profile__main .main-video .videoPlayer {
       width: 420px;
       height: 240px; }
+    .user-profile .user-profile__main .main-video__metadata {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+         -moz-box-orient: vertical;
+         -moz-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      margin-left: 24px; }
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__title {
+        color: #ffffff;
+        font-size: 14px;
+        margin-bottom: 20px; }
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__views {
+        font-size: 13px;
+        margin-bottom: 20px; }
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__description {
+        font-size: 13px; }
   .user-profile .uploaded-video {
     margin-bottom: 20px; }
     .user-profile .uploaded-video span {
