@@ -4,8 +4,12 @@
   align-items: center;
   .video__info {
     width: 100%;
-    max-width: 850px;
     margin-top: 25px;
+    .video__info-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     button {
       width: 100px;
       margin-bottom: 25px;
@@ -22,11 +26,17 @@
       margin-bottom: 15px;
     }
     .video__title {
+      color: $font-darkmode;
       font-size: 22px;
       font-weight: 300;
     }
     .video__views {
       font-size: 14px;
+    }
+    .underLine {
+      width: 100%;
+      border-bottom: 1px solid $black;
+      margin-bottom: 20px;
     }
     .video__description {
       font-size: 16px;

@@ -447,7 +447,9 @@ footer {
     margin-bottom: 10px;
     left: 0;
     min-height: 100%;
-    background-color: red; }
+    background-color: red;
+    -o-object-fit: fill;
+       object-fit: fill; }
   .videoBlock .videoBlock-metadata {
     display: -webkit-box;
     display: -webkit-flex;
@@ -475,11 +477,14 @@ footer {
       margin: 0px; }
 
 .videoPlayer {
-  position: relative; }
+  position: relative;
+  width: 100%;
+  height: 50vh; }
   .videoPlayer:hover .videoPlayer__controls {
     opacity: 1; }
   .videoPlayer video {
     width: 100%;
+    height: 100%;
     max-width: 100%; }
   .videoPlayer .videoPlayer__controls {
     opacity: 0;
@@ -581,8 +586,23 @@ footer {
           align-items: center; }
   .video-detail__container .video__info {
     width: 100%;
-    max-width: 850px;
     margin-top: 25px; }
+    .video-detail__container .video__info .video__info-meta {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
     .video-detail__container .video__info button {
       width: 100px;
       margin-bottom: 25px; }
@@ -594,10 +614,15 @@ footer {
       display: block;
       margin-bottom: 15px; }
     .video-detail__container .video__info .video__title {
+      color: #ffffff;
       font-size: 22px;
       font-weight: 300; }
     .video-detail__container .video__info .video__views {
       font-size: 14px; }
+    .video-detail__container .video__info .underLine {
+      width: 100%;
+      border-bottom: 1px solid #444444;
+      margin-bottom: 20px; }
     .video-detail__container .video__info .video__description {
       font-size: 16px; }
   .video-detail__container .video__comments {

@@ -129,6 +129,7 @@ export const getMe = async (req, res) => {
   const user = await User.findById(req.user.id).populate("videos");
   const bestVideo = await Video.findById(findBestVideoId(user));
   printUploadTime(bestVideo);
+  printUploadTime(user.videos);
   res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
 };
 
@@ -139,10 +140,6 @@ export const userDetail = async (req, res) => {
   try {
     const user = await User.findById(id).populate("videos");
     const bestVideo = await Video.findById(findBestVideoId(user));
-
-    console.log(bestVideo);
-    console.log("-------------");
-    console.log(user.videos);
     printUploadTime(bestVideo);
     printUploadTime(user.videos);
     res.render("userDetail", { pageTitle: "Profile", user, bestVideo });

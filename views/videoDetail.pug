@@ -7,15 +7,24 @@ block content
             src:video.fileUrl
         })
         .video__info            
-            if loggedUser && video.creator.id === loggedUser.id
-                a(href=routes.editVideo(video.id))
-                    button Edit video
-            h5.video__title=video.title
+            .video__info-meta
+                .titleAndViews
+                    h5.video__title=video.title
+                    if video.views === 1
+                        span.video__views 1 view
+                    else 
+                        span.video__views 조회수 #{video.views}회
+                .editButton
+                    if loggedUser && video.creator.id === loggedUser.id
+                        a(href=routes.editVideo(video.id))
+                            button Edit video
+            .underLine
+            .user-profile
+                header.user-profile__header
+                    .user-profile__header-column
+                        img.u-avatar(src=video.creator.avatarUrl)
+                        h4.profile__username=video.creator.name
             p.video__description=video.description
-            if video.views === 1
-                span.video__views 1 view
-            else 
-                span.video__views #{video.views} views
             .video__author
                 |Uploaded By 
                 a(href=routes.userDetail(video.creator.id))=video.creator.name
