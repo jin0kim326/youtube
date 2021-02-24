@@ -14,5 +14,6 @@ module.exports = {
     "no-console": "off",
     "spaced-comment": "off",
     "no-else-return": "off",
+    "import/prefer-default-export": "off",
   },
 };

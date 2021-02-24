@@ -1,7 +1,7 @@
 extends layouts/main
 include mixins/videoBlock
 include mixins/videoPlayer
-
+            
 block content
     .user-profile
         header.user-profile__header
@@ -10,11 +10,11 @@ block content
                 h4.profile__username=user.name
             .user-profile__header-column
                 if loggedUser && user.id === loggedUser.id
-                .user-profile__btns
-                    a(href=`/users${routes.editProfile}`)
-                        button ✏️ Edit Profile
-                    a(href=`/users${routes.changePassword}`)
-                        button 🔒 Change Password
+                    .user-profile__btns
+                        a(href=`/users${routes.editProfile}`)
+                            button ✏️ Edit Profile
+                        a(href=`/users${routes.changePassword}`)
+                            button 🔒 Change Password
         .user-profile__main
             .main-video
                 +videoPlayer({
@@ -22,7 +22,9 @@ block content
                 })
             .main-video__metadata
                 h3.videoBlock__title=bestVideo.title
-                h3.videoBlock__views 조회수#{bestVideo.views}회
+                .viewsAndTime
+                        span.videoBlock__views 조회수 #{bestVideo.views}회 
+                        span.videoBlock__time= bestVideo.uploadTime
                 p.videoBlock__description=bestVideo.description
         .uploaded-video
                 span 업로드한 동영상        
@@ -35,4 +37,5 @@ block content
                     videoFile:item.fileUrl,
                     creatorAvatarUrl:item.avatarUrl,
                     creatorName:item.name,
+                    uploadTime: item.uploadTime
                 })

@@ -472,7 +472,7 @@ footer {
       color: #aaaaaa; }
     .videoBlock .videoBlock-metadata .videoBlock__column .videoBlock__views::after {
       content: "•";
-      margin: 0px 4px; }
+      margin: 0px; }
 
 .videoPlayer {
   position: relative; }
@@ -685,11 +685,16 @@ footer {
         color: #ffffff;
         font-size: 14px;
         margin-bottom: 20px; }
-      .user-profile .user-profile__main .main-video__metadata .videoBlock__views {
-        font-size: 13px;
+      .user-profile .user-profile__main .main-video__metadata .viewsAndTime {
         margin-bottom: 20px; }
-      .user-profile .user-profile__main .main-video__metadata .videoBlock__description {
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__views {
         font-size: 13px; }
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__description {
+        font-size: 13px;
+        color: #ffffff; }
+      .user-profile .user-profile__main .main-video__metadata .videoBlock__views::after {
+        content: "•";
+        margin: 0px; }
   .user-profile .uploaded-video {
     margin-bottom: 20px; }
     .user-profile .uploaded-video span {

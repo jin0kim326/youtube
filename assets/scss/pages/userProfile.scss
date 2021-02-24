@@ -40,13 +40,21 @@
         margin-bottom: 20px;
       }
 
+      .viewsAndTime {
+        margin-bottom: 20px;
+      }
+
       .videoBlock__views {
         font-size: 13px;
-        margin-bottom: 20px;
       }
 
       .videoBlock__description {
         font-size: 13px;
+        color: $font-darkmode;
+      }
+      .videoBlock__views::after {
+        content: "•";
+        margin: 0px;
       }
     }
   }

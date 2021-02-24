@@ -2,6 +2,7 @@ import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 import Video from "../models/Video";
+import { printUploadTime } from "./functions";
 
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
@@ -121,13 +122,13 @@ const findBestVideoId = (user) => {
       willReturnId = video.id;
     }
   });
-  console.log(willReturnId);
   return willReturnId;
 };
 
 export const getMe = async (req, res) => {
   const user = await User.findById(req.user.id).populate("videos");
   const bestVideo = await Video.findById(findBestVideoId(user));
+  printUploadTime(bestVideo);
   res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
 };
 
@@ -138,6 +139,12 @@ export const userDetail = async (req, res) => {
   try {
     const user = await User.findById(id).populate("videos");
     const bestVideo = await Video.findById(findBestVideoId(user));
+
+    console.log(bestVideo);
+    console.log("-------------");
+    console.log(user.videos);
+    printUploadTime(bestVideo);
+    printUploadTime(user.videos);
     res.render("userDetail", { pageTitle: "Profile", user, bestVideo });
   } catch (error) {
     res.redirect(routes.home);
