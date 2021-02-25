@@ -1,0 +1,27 @@
+.commentBlock {
+  display: flex;
+  margin-bottom: 30px;
+  img {
+    margin-right: 10px;
+  }
+
+  .commentBlock-main {
+    color: $font-darkmode;
+    font-weight: 400;
+  }
+
+  .commentBlock-user {
+    font-size: 13px;
+    .comment-username {
+    }
+    .comment-uploadTime {
+      margin-left: 10px;
+      color: $metadata;
+    }
+  }
+  .commentBlock-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.15rem;
+  }
+}

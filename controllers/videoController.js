@@ -2,7 +2,7 @@ import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
 import Comment from "../models/Comment";
-import { printUploadTime, timeForToday } from "./functions";
+import { printUploadTime, printCommentUploadTime } from "./functions";
 
 export const home = async (req, res) => {
   try {
@@ -58,11 +58,10 @@ export const videoDetail = async (req, res) => {
     } = req;
     const video = await Video.findById(id)
       .populate("creator")
-      .populate("comments");
+      .populate("comments")
+      .populate({ path: "comments", populate: { path: "creator" } });
 
-    video.comments.map(async (comment) => {
-      const commentUser = await User.findById(comment.creator);
-    });
+    printCommentUploadTime(video.comments);
     res.render("videoDetail", { pageTitle: "VideoDetail", video, user });
   } catch (error) {
     console.log(error);

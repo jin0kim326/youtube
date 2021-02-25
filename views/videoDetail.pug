@@ -1,5 +1,6 @@
 extends layouts/main
 include mixins/videoPlayer
+include mixins/commentBlock
 
 block content
     .video-detail__container
@@ -32,11 +33,19 @@ block content
                     span#jsCommentNumber=video.comments.length
                     | 개
                 .add_comment-board
-                    img.u-avatar--small(src=loggedUser.avatarUrl)
-                    form.add__comment#jsAddComment
-                        input(type="text", placeholder="Add a comment")
+                    img.u-avatar--comment(src=loggedUser.avatarUrl)
+                    .add__comment#jsAddComment
+                        input.add__comment-input#jsCommentInput(type="text", placeholder="공개 댓글 추가...")
+                        .comment-buttons#jsCommentBtns
+                            button.comment-cancel 취소
+                            button.comment-upload 등록
                 ul.video__comments-list#jsCommentList
                     each comment in video.comments.reverse()
-                        li
-                            img.u-avatar--small(src=comment.creator.avatarUrl)
-                            span=comment.text
+                        +commentBlock({
+                            creator:comment.creator,
+                            name:comment.creator.name,
+                            avatarUrl:comment.creator.avatarUrl,
+                            uploadTime:comment.uploadTime,
+                            text:comment.text
+                        })
+                        

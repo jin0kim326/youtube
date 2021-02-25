@@ -27,6 +27,13 @@ export const printUploadTime = (videos) => {
   Array.from(videos).forEach((video) => {
     video.uploadTime = timeForToday(video.createdAt);
     video.save();
-    console.log(video.title);
+  });
+};
+
+export const printCommentUploadTime = (comments) => {
+  Array.from(comments).forEach((comment) => {
+    comment.uploadTime = timeForToday(comment.createdAt);
+    comment.save();
+    console.log(timeForToday(comment.createdAt));
   });
 };

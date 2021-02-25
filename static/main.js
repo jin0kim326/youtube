@@ -19,6 +19,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var addCommentForm = document.querySelector("#jsAddComment");
 var commentList = document.querySelector("#jsCommentList");
 var commentNumber = document.querySelector("#jsCommentNumber");
+var commentInput = document.querySelector("#jsCommentInput");
+var commentBtns = document.querySelector("#jsCommentBtns");
+var commentUnderLine = document.querySelector("#jsCommentUnderLine");
 
 var increaseNumber = function increaseNumber() {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
@@ -78,8 +81,16 @@ var handleSubmit = function handleSubmit(event) {
   commentInput.value = "";
 };
 
+var focusInInput = function focusInInput() {
+  commentBtns.style.display = "flex";
+};
+
+var focusOutInput = function focusOutInput() {};
+
 function init() {
   addCommentForm.addEventListener("submit", handleSubmit);
+  commentInput.addEventListener("focusin", focusInInput);
+  commentInput.addEventListener("focusout", focusOutInput);
 }
 
 if (addCommentForm) {

@@ -59,26 +59,60 @@
     .add_comment-board {
       margin-top: 10px;
       display: flex;
-      align-items: center;
+      img {
+        vertical-align: top;
+      }
     }
 
     .add__comment {
       margin-left: 10px;
       width: 100%;
-      input {
+      margin-bottom: 20px;
+
+      .add__comment-input {
+        border: none;
+        background-color: inherit;
+        box-shadow: none;
+        border-radius: 0;
         width: 100%;
+        max-width: 100%;
+        display: inline-block;
+        margin: 0;
+
+        &::placeholder {
+          color: $metadata;
+        }
       }
-    }
-    .video__comments-list {
-      margin-top: 20px;
-      li {
-        background-color: #3498db;
-        color: white;
-        padding: 15px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
-        &:not(:last-child) {
-          margin-bottom: 15px;
+
+      .add__comment-input::after {
+        display: block;
+        content: "";
+        border-bottom: solid 3px #019fb6;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+      }
+      .add__comment-input:focus::after {
+        transform: scaleX(1);
+      }
+
+      .comment-buttons {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        button {
+          color: $metadata;
+          font-size: 12px;
+          box-shadow: none;
+          background-color: inherit;
+          width: 60px;
+          border-radius: 2px;
+
+          &:last-child {
+            background-color: $black;
+            color: $bg-dark;
+          }
         }
       }
     }

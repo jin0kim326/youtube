@@ -3,6 +3,9 @@ import axios from "axios";
 const addCommentForm = document.querySelector("#jsAddComment");
 const commentList = document.querySelector("#jsCommentList");
 const commentNumber = document.querySelector("#jsCommentNumber");
+const commentInput = document.querySelector("#jsCommentInput");
+const commentBtns = document.querySelector("#jsCommentBtns");
+const commentUnderLine = document.querySelector("#jsCommentUnderLine");
 
 const increaseNumber = () => {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
@@ -39,8 +42,15 @@ const handleSubmit = (event) => {
   commentInput.value = "";
 };
 
+const focusInInput = () => {
+  commentBtns.style.display = "flex";
+};
+
+const focusOutInput = () => {};
 function init() {
   addCommentForm.addEventListener("submit", handleSubmit);
+  commentInput.addEventListener("focusin", focusInInput);
+  commentInput.addEventListener("focusout", focusOutInput);
 }
 
 if (addCommentForm) {

@@ -1,0 +1,10 @@
+mixin commentBlock(comment={})
+    .commentBlock
+        img.u-avatar--comment(src=comment.avatarUrl)
+        .commentBlock-main
+            .commentBlock-user
+                a(href=routes.userDetail(comment.creator))
+                    span.comment-username=comment.name
+                span.comment-uploadTime=comment.uploadTime
+            .commentBlock-text
+                p.comment-text=comment.text

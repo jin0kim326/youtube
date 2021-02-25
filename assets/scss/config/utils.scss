@@ -1,11 +1,17 @@
 .u-avatar {
   height: 80px;
-  background-color: $red;
+  background-color: $bg-dark;
   border-radius: 50%;
 }
 
 .u-avatar--small {
   height: 36px;
-  background-color: $red;
+  background-color: $bg-dark;
+  border-radius: 50%;
+}
+
+.u-avatar--comment {
+  height: 42px;
+  background-color: $bg-dark;
   border-radius: 50%;
 }
