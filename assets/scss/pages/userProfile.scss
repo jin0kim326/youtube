@@ -9,11 +9,11 @@
       display: flex;
       align-items: center;
     }
-    .profile__username {
-      font-size: 24px;
-      margin-left: 10px;
-      color: $font-darkmode;
-    }
+  }
+  .profile__username {
+    font-size: 24px;
+    margin-left: 10px;
+    color: $font-darkmode;
   }
 
   .user-profile__main {

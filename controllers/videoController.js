@@ -54,11 +54,16 @@ export const videoDetail = async (req, res) => {
   try {
     const {
       params: { id },
+      user,
     } = req;
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
-    res.render("videoDetail", { pageTitle: "VideoDetail", video });
+
+    video.comments.map(async (comment) => {
+      const commentUser = await User.findById(comment.creator);
+    });
+    res.render("videoDetail", { pageTitle: "VideoDetail", video, user });
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);

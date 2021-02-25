@@ -38,26 +38,39 @@
       border-bottom: 1px solid $black;
       margin-bottom: 20px;
     }
+    .user-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
     .video__description {
+      margin-left: 90px;
       font-size: 16px;
+      color: $font-darkmode;
     }
   }
   .video__comments {
     margin-top: 25px;
-    text-align: center;
 
     .video__comment-number {
+      color: $font-darkmode;
       font-size: 18px;
     }
+    .add_comment-board {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+    }
+
     .add__comment {
-      margin-top: 25px;
+      margin-left: 10px;
       width: 100%;
       input {
         width: 100%;
       }
     }
     .video__comments-list {
-      margin-top: 50px;
+      margin-top: 20px;
       li {
         background-color: #3498db;
         color: white;

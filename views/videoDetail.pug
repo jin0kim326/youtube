@@ -20,26 +20,23 @@ block content
                             button Edit video
             .underLine
             .user-profile
-                header.user-profile__header
-                    .user-profile__header-column
-                        img.u-avatar(src=video.creator.avatarUrl)
-                        h4.profile__username=video.creator.name
+                a(href=routes.userDetail(video.creator.id))
+                    img.u-avatar(src=video.creator.avatarUrl)
+                a(href=routes.userDetail(video.creator.id))
+                    span.profile__username=video.creator.name
             p.video__description=video.description
-            .video__author
-                |Uploaded By 
-                a(href=routes.userDetail(video.creator.id))=video.creator.name
-        .video__comments
-            if video.comments.length === 1
+            .underLine
+            .video__comments
                 span.video__comment-number
-                    span#jsCommentNumber 1
-                    |  comment
-            else
-                span.video__comment-number
+                    | 댓글 
                     span#jsCommentNumber=video.comments.length
-                    |  comments
-            form.add__comment#jsAddComment
-                input(type="text", placeholder="Add a comment")
-            ul.video__comments-list#jsCommentList
-                each comment in video.comments.reverse()
-                    li
-                        span=comment.text
+                    | 개
+                .add_comment-board
+                    img.u-avatar--small(src=loggedUser.avatarUrl)
+                    form.add__comment#jsAddComment
+                        input(type="text", placeholder="Add a comment")
+                ul.video__comments-list#jsCommentList
+                    each comment in video.comments.reverse()
+                        li
+                            img.u-avatar--small(src=comment.creator.avatarUrl)
+                            span=comment.text

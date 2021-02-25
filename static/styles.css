@@ -623,20 +623,46 @@ footer {
       width: 100%;
       border-bottom: 1px solid #444444;
       margin-bottom: 20px; }
+    .video-detail__container .video__info .user-profile {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-bottom: 16px; }
     .video-detail__container .video__info .video__description {
-      font-size: 16px; }
+      margin-left: 90px;
+      font-size: 16px;
+      color: #ffffff; }
   .video-detail__container .video__comments {
-    margin-top: 25px;
-    text-align: center; }
+    margin-top: 25px; }
     .video-detail__container .video__comments .video__comment-number {
+      color: #ffffff;
       font-size: 18px; }
+    .video-detail__container .video__comments .add_comment-board {
+      margin-top: 10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
     .video-detail__container .video__comments .add__comment {
-      margin-top: 25px;
+      margin-left: 10px;
       width: 100%; }
       .video-detail__container .video__comments .add__comment input {
         width: 100%; }
     .video-detail__container .video__comments .video__comments-list {
-      margin-top: 50px; }
+      margin-top: 20px; }
       .video-detail__container .video__comments .video__comments-list li {
         background-color: #3498db;
         color: white;
@@ -675,10 +701,10 @@ footer {
          -moz-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-    .user-profile .user-profile__header .profile__username {
-      font-size: 24px;
-      margin-left: 10px;
-      color: #ffffff; }
+  .user-profile .profile__username {
+    font-size: 24px;
+    margin-left: 10px;
+    color: #ffffff; }
   .user-profile .user-profile__main {
     display: -webkit-box;
     display: -webkit-flex;
