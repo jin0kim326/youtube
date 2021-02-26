@@ -1,7 +1,7 @@
 mixin videoBlock(video = {})
     .videoBlock
         a(href=routes.videoDetail(video.id))
-            video.videoBlock__thumbnail(src=`/${video.videoFile}`, controls=false)
+            video.videoBlock__thumbnail(src=video.videoFile, controls=false)
             .videoBlock-metadata
                 .videoBlock__column
                     img.u-avatar--small(src=video.creatorAvatarUrl)
