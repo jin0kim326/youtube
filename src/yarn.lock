@@ -2714,6 +2714,11 @@
   "resolved" "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   "version" "1.0.0-beta.2"
 
+"get-blob-duration@^1.1.2":
+  "integrity" "sha512-8QmVZpSIpcwpL+ZGfxEsZs/D/JsA+MgEDs2kHnB4/XIoGW/5TLn6NkhfKr7KbK/RzMc4VhW1VOmQmxgtwh6wJg=="
+  "resolved" "https://registry.npmjs.org/get-blob-duration/-/get-blob-duration-1.1.2.tgz"
+  "version" "1.1.2"
+
 "get-caller-file@^2.0.1":
   "integrity" "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg=="
   "resolved" "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
