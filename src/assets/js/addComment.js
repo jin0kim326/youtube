@@ -5,6 +5,7 @@ const commentList = document.querySelector("#jsCommentList");
 const commentNumber = document.querySelector("#jsCommentNumber");
 const commentInput = document.querySelector("#jsCommentInput");
 const commentBtns = document.querySelector("#jsCommentBtns");
+const commentUpload = document.querySelector("#jsCommentUpload");
 const commentUnderLine = document.querySelector("#jsCommentUnderLine");
 
 const increaseNumber = () => {
@@ -44,11 +45,12 @@ const handleSubmit = (event) => {
 
 const focusInInput = () => {
   commentBtns.style.display = "flex";
+  // commentUnderLine.classList.add("focusInput");
 };
 
 const focusOutInput = () => {};
 function init() {
-  addCommentForm.addEventListener("submit", handleSubmit);
+  commentUpload.addEventListener("click", handleSubmit);
   commentInput.addEventListener("focusin", focusInInput);
   commentInput.addEventListener("focusout", focusOutInput);
 }

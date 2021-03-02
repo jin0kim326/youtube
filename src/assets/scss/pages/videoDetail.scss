@@ -82,17 +82,25 @@
         &::placeholder {
           color: $metadata;
         }
-      }
 
-      .add__comment-input::after {
-        display: block;
-        content: "";
-        border-bottom: solid 3px #019fb6;
-        transform: scaleX(0);
-        transition: transform 250ms ease-in-out;
+        &:focus + .underLine-comment {
+          scale: (1);
+        }
       }
-      .add__comment-input:focus::after {
-        transform: scaleX(1);
+      .underLine-comment {
+        width: 100%;
+        background-color: dodgerblue;
+        display: inline-block;
+        height: 2px;
+        left: 50px;
+        margin-top: -4px;
+        position: absolute;
+        top: 185px;
+        -webkit-transform: scale(0, 1);
+        transform: scale(0, 1);
+        -webkit-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+        width: 202px;
       }
 
       .comment-buttons {

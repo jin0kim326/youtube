@@ -3,8 +3,9 @@ mixin videoBlock(video = {})
         a(href=routes.videoDetail(video.id))
             video.videoBlock__thumbnail(src=video.videoFile, controls=false)
             .videoBlock-metadata
-                .videoBlock__column
-                    img.u-avatar--small(src=video.creatorAvatarUrl)
+                if video.creatorAvatarUrl
+                    .videoBlock__column
+                        img.u-avatar--small(src=video.creatorAvatarUrl)
                 .videoBlock__column    
                     h3.videoBlock__title=video.title
                     h3.videoBlock__creator=video.creatorName
