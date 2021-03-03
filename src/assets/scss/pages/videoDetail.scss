@@ -78,29 +78,24 @@
         max-width: 100%;
         display: inline-block;
         margin: 0;
-
+        color: $font-darkmode;
         &::placeholder {
           color: $metadata;
         }
 
         &:focus + .underLine-comment {
-          scale: (1);
+          transform: scale(1);
         }
       }
+
       .underLine-comment {
         width: 100%;
         background-color: dodgerblue;
         display: inline-block;
-        height: 2px;
-        left: 50px;
-        margin-top: -4px;
-        position: absolute;
-        top: 185px;
-        -webkit-transform: scale(0, 1);
-        transform: scale(0, 1);
-        -webkit-transition: all 0.5s linear;
-        transition: all 0.5s linear;
-        width: 202px;
+        height: 1px;
+        transform: scale(0);
+        transition: all 0.5s ease-in;
+        margin-bottom: 5px;
       }
 
       .comment-buttons {

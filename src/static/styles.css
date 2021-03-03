@@ -701,7 +701,8 @@ footer {
         width: 100%;
         max-width: 100%;
         display: inline-block;
-        margin: 0; }
+        margin: 0;
+        color: #ffffff; }
         .video-detail__container .video__comments .add__comment .add__comment-input::-webkit-input-placeholder {
           color: #aaaaaa; }
         .video-detail__container .video__comments .add__comment .add__comment-input:-moz-placeholder {
@@ -715,26 +716,26 @@ footer {
         .video-detail__container .video__comments .add__comment .add__comment-input::placeholder {
           color: #aaaaaa; }
         .video-detail__container .video__comments .add__comment .add__comment-input:focus + .underLine-comment {
-          scale: 1; }
+          -webkit-transform: scale(1);
+             -moz-transform: scale(1);
+              -ms-transform: scale(1);
+               -o-transform: scale(1);
+                  transform: scale(1); }
       .video-detail__container .video__comments .add__comment .underLine-comment {
         width: 100%;
         background-color: dodgerblue;
         display: inline-block;
-        height: 2px;
-        left: 50px;
-        margin-top: -4px;
-        position: absolute;
-        top: 185px;
-        -webkit-transform: scale(0, 1);
-        -moz-transform: scale(0, 1);
-         -ms-transform: scale(0, 1);
-          -o-transform: scale(0, 1);
-             transform: scale(0, 1);
-        -webkit-transition: all 0.5s linear;
-        -o-transition: all 0.5s linear;
-        -moz-transition: all 0.5s linear;
-        transition: all 0.5s linear;
-        width: 202px; }
+        height: 1px;
+        -webkit-transform: scale(0);
+           -moz-transform: scale(0);
+            -ms-transform: scale(0);
+             -o-transform: scale(0);
+                transform: scale(0);
+        -webkit-transition: all 0.5s ease-in;
+        -o-transition: all 0.5s ease-in;
+        -moz-transition: all 0.5s ease-in;
+        transition: all 0.5s ease-in;
+        margin-bottom: 5px; }
       .video-detail__container .video__comments .add__comment .comment-buttons {
         display: none;
         -webkit-box-orient: horizontal;

@@ -13,12 +13,13 @@ const increaseNumber = () => {
 };
 
 const addComment = (comment) => {
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  span.innerHTML = comment;
-  li.appendChild(span);
-  commentList.prepend(li);
+  const commentBlock = document.createElement("li");
+
+  const avatar = document.createElement("img");
+  const commentBlockMain = document.createElement("div");
+  // commentList.prepend(commentBlock);
   increaseNumber();
+  window.location.reload();
 };
 
 const sendComment = async (comment) => {
@@ -36,9 +37,13 @@ const sendComment = async (comment) => {
 };
 
 const handleSubmit = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   const commentInput = addCommentForm.querySelector("input");
   const comment = commentInput.value;
+  if (comment === "") {
+    return;
+  }
+
   sendComment(comment);
   commentInput.value = "";
 };

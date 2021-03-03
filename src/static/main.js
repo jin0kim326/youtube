@@ -12979,12 +12979,12 @@ var increaseNumber = function increaseNumber() {
 };
 
 var addComment = function addComment(comment) {
-  var li = document.createElement("li");
-  var span = document.createElement("span");
-  span.innerHTML = comment;
-  li.appendChild(span);
-  commentList.prepend(li);
+  var commentBlock = document.createElement("li");
+  var avatar = document.createElement("img");
+  var commentBlockMain = document.createElement("div"); // commentList.prepend(commentBlock);
+
   increaseNumber();
+  window.location.reload();
 };
 
 var sendComment = /*#__PURE__*/function () {
@@ -13025,9 +13025,14 @@ var sendComment = /*#__PURE__*/function () {
 }();
 
 var handleSubmit = function handleSubmit(event) {
-  event.preventDefault();
+  // event.preventDefault();
   var commentInput = addCommentForm.querySelector("input");
   var comment = commentInput.value;
+
+  if (comment === "") {
+    return;
+  }
+
   sendComment(comment);
   commentInput.value = "";
 };
