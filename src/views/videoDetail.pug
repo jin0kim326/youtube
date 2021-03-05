@@ -34,11 +34,12 @@ block content
                     | 개
                 .add_comment-board
                     img.u-avatar--comment(src=loggedUser.avatarUrl)
+                    span.loggedUser=loggedUser.name
                     .add__comment#jsAddComment
                         input.add__comment-input#jsCommentInput(type="text", placeholder="공개 댓글 추가...")
                         span.underLine-comment#jsCommentUnderLine
                         .comment-buttons#jsCommentBtns
-                            button.comment-cancel 취소
+                            button.comment-cancel#jsCommentCancel 취소
                             button.comment-upload#jsCommentUpload 등록
                 ul.video__comments-list#jsCommentList
                     each comment in video.comments.reverse()

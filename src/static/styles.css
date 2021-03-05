@@ -685,6 +685,8 @@ footer {
       display: flex; }
       .video-detail__container .video__comments .add_comment-board img {
         vertical-align: top; }
+    .video-detail__container .video__comments .loggedUser {
+      display: none; }
     .video-detail__container .video__comments .add__comment {
       margin-left: 10px;
       width: 100%;
@@ -723,7 +725,7 @@ footer {
                   transform: scale(1); }
       .video-detail__container .video__comments .add__comment .underLine-comment {
         width: 100%;
-        background-color: dodgerblue;
+        background-color: #3391ff;
         display: inline-block;
         height: 1px;
         -webkit-transform: scale(0);
@@ -769,6 +771,8 @@ footer {
           .video-detail__container .video__comments .add__comment .comment-buttons button:last-child {
             background-color: #444444;
             color: #101010; }
+        .video-detail__container .video__comments .add__comment .comment-buttons .comment-upload.existValue {
+          background-color: #3391ff; }
 
 .user-profile {
   width: 100%; }

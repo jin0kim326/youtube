@@ -64,6 +64,10 @@
       }
     }
 
+    .loggedUser {
+      display: none;
+    }
+
     .add__comment {
       margin-left: 10px;
       width: 100%;
@@ -90,7 +94,7 @@
 
       .underLine-comment {
         width: 100%;
-        background-color: dodgerblue;
+        background-color: $rightBlue;
         display: inline-block;
         height: 1px;
         transform: scale(0);
@@ -116,6 +120,9 @@
             background-color: $black;
             color: $bg-dark;
           }
+        }
+        .comment-upload.existValue {
+          background-color: $rightBlue;
         }
       }
     }

@@ -12972,7 +12972,10 @@ var commentNumber = document.querySelector("#jsCommentNumber");
 var commentInput = document.querySelector("#jsCommentInput");
 var commentBtns = document.querySelector("#jsCommentBtns");
 var commentUpload = document.querySelector("#jsCommentUpload");
+var commentCancel = document.querySelector("#jsCommentCancel");
 var commentUnderLine = document.querySelector("#jsCommentUnderLine");
+var loggedUser;
+var avatarUrl;
 
 var increaseNumber = function increaseNumber() {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
@@ -12980,11 +12983,10 @@ var increaseNumber = function increaseNumber() {
 
 var addComment = function addComment(comment) {
   var commentBlock = document.createElement("li");
-  var avatar = document.createElement("img");
-  var commentBlockMain = document.createElement("div"); // commentList.prepend(commentBlock);
-
-  increaseNumber();
-  window.location.reload();
+  commentBlock.setAttribute("class", "commentBlock");
+  commentBlock.innerHTML = "\n    <img src=\"".concat(avatarUrl, "\" class=\"u-avatar--comment\" />\n    <div class=\"commentBlock-main\">\n      <div class=\"commentBlock-user\">\n        <a href=\"\">\n          <span class=\"comment-username\">").concat(loggedUser, "</span>\n        </a>\n        <span class=\"comment-uploadTime\">\uBC29\uAE08\uC804</span>\n      </div>\n      <div class=\"commentBlock-text\">\n        <span class=\"comment-text\">").concat(comment, "</span>\n      </div>\n    </div>\n  ");
+  commentList.prepend(commentBlock);
+  increaseNumber(); // window.location.reload();
 };
 
 var sendComment = /*#__PURE__*/function () {
@@ -13025,7 +13027,10 @@ var sendComment = /*#__PURE__*/function () {
 }();
 
 var handleSubmit = function handleSubmit(event) {
-  // event.preventDefault();
+  event.preventDefault();
+  avatarUrl = event.target.parentNode.parentNode.previousSibling.previousSibling.currentSrc;
+  loggedUser = event.target.parentNode.parentNode.previousSibling.outerText;
+  console.log(event);
   var commentInput = addCommentForm.querySelector("input");
   var comment = commentInput.value;
 
@@ -13038,14 +13043,31 @@ var handleSubmit = function handleSubmit(event) {
 };
 
 var focusInInput = function focusInInput() {
-  commentBtns.style.display = "flex"; // commentUnderLine.classList.add("focusInput");
+  commentBtns.style.display = "flex";
 };
 
 var focusOutInput = function focusOutInput() {};
 
+var changeInput = function changeInput(event) {
+  console.log(commentInput.value);
+
+  if (commentInput.value === "") {
+    commentUpload.classList.remove("existValue");
+  } else {
+    commentUpload.classList.add("existValue");
+  }
+};
+
+var handleCancel = function handleCancel() {
+  commentInput.value = "";
+  commentBtns.style.display = "none";
+};
+
 function init() {
   commentUpload.addEventListener("click", handleSubmit);
+  commentCancel.addEventListener("click", handleCancel);
   commentInput.addEventListener("focusin", focusInInput);
+  commentInput.addEventListener("input", changeInput);
   commentInput.addEventListener("focusout", focusOutInput);
 }
 
