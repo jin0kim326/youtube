@@ -7,7 +7,6 @@ const commentInput = document.querySelector("#jsCommentInput");
 const commentBtns = document.querySelector("#jsCommentBtns");
 const commentUpload = document.querySelector("#jsCommentUpload");
 const commentCancel = document.querySelector("#jsCommentCancel");
-const commentUnderLine = document.querySelector("#jsCommentUnderLine");
 
 let loggedUser;
 let avatarUrl;
@@ -36,7 +35,6 @@ const addComment = (comment) => {
   commentList.prepend(commentBlock);
 
   increaseNumber();
-  // window.location.reload();
 };
 
 const sendComment = async (comment) => {
@@ -59,9 +57,7 @@ const handleSubmit = (event) => {
     event.target.parentNode.parentNode.previousSibling.previousSibling
       .currentSrc;
   loggedUser = event.target.parentNode.parentNode.previousSibling.outerText;
-  console.log(event);
 
-  const commentInput = addCommentForm.querySelector("input");
   const comment = commentInput.value;
   if (comment === "") {
     return;
@@ -77,8 +73,7 @@ const focusInInput = () => {
 
 const focusOutInput = () => {};
 
-const changeInput = (event) => {
-  console.log(commentInput.value);
+const changeInput = () => {
   if (commentInput.value === "") {
     commentUpload.classList.remove("existValue");
   } else {

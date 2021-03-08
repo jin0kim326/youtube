@@ -491,7 +491,8 @@ footer {
 .videoPlayer {
   position: relative;
   width: 100%;
-  height: 50vh; }
+  height: 50vh;
+  background-color: black; }
   .videoPlayer:hover .videoPlayer__controls {
     opacity: 1; }
   .videoPlayer video {
@@ -507,7 +508,7 @@ footer {
     color: white;
     position: absolute;
     z-index: 9;
-    bottom: 5px;
+    bottom: 0px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -687,6 +688,7 @@ footer {
   grid-template-columns: 1fr 1fr 1fr 1fr; }
 
 .video-detail__container {
+  margin-top: -50px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;

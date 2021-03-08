@@ -11,10 +11,7 @@ block content
             .video__info-meta
                 .titleAndViews
                     h5.video__title=video.title
-                    if video.views === 1
-                        span.video__views 1 view
-                    else 
-                        span.video__views 조회수 #{video.views}회
+                    span.video__views 조회수 #{video.views}회
                 .editButton
                     if loggedUser && video.creator.id === loggedUser.id
                         a(href=routes.editVideo(video.id))

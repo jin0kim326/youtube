@@ -12973,7 +12973,6 @@ var commentInput = document.querySelector("#jsCommentInput");
 var commentBtns = document.querySelector("#jsCommentBtns");
 var commentUpload = document.querySelector("#jsCommentUpload");
 var commentCancel = document.querySelector("#jsCommentCancel");
-var commentUnderLine = document.querySelector("#jsCommentUnderLine");
 var loggedUser;
 var avatarUrl;
 
@@ -12986,7 +12985,7 @@ var addComment = function addComment(comment) {
   commentBlock.setAttribute("class", "commentBlock");
   commentBlock.innerHTML = "\n    <img src=\"".concat(avatarUrl, "\" class=\"u-avatar--comment\" />\n    <div class=\"commentBlock-main\">\n      <div class=\"commentBlock-user\">\n        <a href=\"\">\n          <span class=\"comment-username\">").concat(loggedUser, "</span>\n        </a>\n        <span class=\"comment-uploadTime\">\uBC29\uAE08\uC804</span>\n      </div>\n      <div class=\"commentBlock-text\">\n        <span class=\"comment-text\">").concat(comment, "</span>\n      </div>\n    </div>\n  ");
   commentList.prepend(commentBlock);
-  increaseNumber(); // window.location.reload();
+  increaseNumber();
 };
 
 var sendComment = /*#__PURE__*/function () {
@@ -13030,8 +13029,6 @@ var handleSubmit = function handleSubmit(event) {
   event.preventDefault();
   avatarUrl = event.target.parentNode.parentNode.previousSibling.previousSibling.currentSrc;
   loggedUser = event.target.parentNode.parentNode.previousSibling.outerText;
-  console.log(event);
-  var commentInput = addCommentForm.querySelector("input");
   var comment = commentInput.value;
 
   if (comment === "") {
@@ -13048,9 +13045,7 @@ var focusInInput = function focusInInput() {
 
 var focusOutInput = function focusOutInput() {};
 
-var changeInput = function changeInput(event) {
-  console.log(commentInput.value);
-
+var changeInput = function changeInput() {
   if (commentInput.value === "") {
     commentUpload.classList.remove("existValue");
   } else {
@@ -13231,7 +13226,6 @@ function handleEnded() {
 
 function handleDrag(event) {
   var value = event.target.value;
-  console.log("drag");
   videoPlayer.volume = value;
 
   if (value >= 0.6) {
@@ -13253,18 +13247,24 @@ var handleKeyEvent = function handleKeyEvent(event) {
       break;
 
     case "ArrowUp":
-      console.log(volumeRange);
-      console.log(volumeRange.value);
       event.preventDefault();
-      volumeRange.value = volumeRange + 0.1;
-      videoPlayer.volume += 0.1;
+
+      if (videoPlayer.volume > 1) {
+        break;
+      }
+
+      videoPlayer.volume = Math.min(videoPlayer.volume + 0.1, 1);
+      volumeRange.value = videoPlayer.volume;
       break;
 
     case "ArrowDown":
-      console.log(volumeRange.value);
+      if (videoPlayer.volume < 0) {
+        break;
+      }
+
       event.preventDefault();
-      volumeRange.value -= 0.1;
-      videoPlayer.volume -= 0.1;
+      videoPlayer.volume = Math.max(videoPlayer.volume - 0.1, 0);
+      volumeRange.value = videoPlayer.volume;
       break;
 
     default:
@@ -13272,7 +13272,7 @@ var handleKeyEvent = function handleKeyEvent(event) {
 };
 
 function init() {
-  videoPlayer.volume = 1;
+  videoPlayer.volume = 0.5;
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumnClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
