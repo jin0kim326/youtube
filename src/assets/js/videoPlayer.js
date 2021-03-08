@@ -90,6 +90,7 @@ function handleDrag(event) {
   const {
     target: { value },
   } = event;
+  console.log("drag");
   videoPlayer.volume = value;
   if (value >= 0.6) {
     volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -100,8 +101,33 @@ function handleDrag(event) {
   }
 }
 
+const handleKeyEvent = (event) => {
+  const keyName = event.key;
+
+  switch (keyName) {
+    case " ":
+      event.preventDefault();
+      handlePlayClick();
+      break;
+    case "ArrowUp":
+      console.log(volumeRange);
+      console.log(volumeRange.value);
+      event.preventDefault();
+      volumeRange.value = volumeRange + 0.1;
+      videoPlayer.volume += 0.1;
+      break;
+    case "ArrowDown":
+      console.log(volumeRange.value);
+      event.preventDefault();
+      volumeRange.value -= 0.1;
+      videoPlayer.volume -= 0.1;
+      break;
+    default:
+  }
+};
+
 function init() {
-  videoPlayer.volume = 0.5;
+  videoPlayer.volume = 1;
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumnClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
@@ -109,6 +135,9 @@ function init() {
   videoPlayer.addEventListener("timeupdate", getCurrentTime);
   videoPlayer.addEventListener("ended", handleEnded);
   volumeRange.addEventListener("input", handleDrag);
+  if (videoPlayer) {
+    document.addEventListener("keydown", handleKeyEvent);
+  }
 }
 
 if (videoContainer) {

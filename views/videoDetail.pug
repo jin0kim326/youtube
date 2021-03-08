@@ -32,14 +32,15 @@ block content
                     | 댓글 
                     span#jsCommentNumber=video.comments.length
                     | 개
-                .add_comment-board
-                    img.u-avatar--comment(src=loggedUser.avatarUrl)
-                    .add__comment#jsAddComment
-                        input.add__comment-input#jsCommentInput(type="text", placeholder="공개 댓글 추가...")
-                        .underLine-comment
-                        .comment-buttons#jsCommentBtns
-                            button.comment-cancel 취소
-                            button.comment-upload 등록
+                if (loggedUser)
+                    .add_comment-board
+                        img.u-avatar--comment(src=loggedUser.avatarUrl)
+                        .add__comment#jsAddComment
+                            input.add__comment-input#jsCommentInput(type="text", placeholder="공개 댓글 추가...")
+                            .underLine-comment
+                            .comment-buttons#jsCommentBtns
+                                button.comment-cancel 취소
+                                button.comment-upload 등록
                 ul.video__comments-list#jsCommentList
                     each comment in video.comments.reverse()
                         +commentBlock({

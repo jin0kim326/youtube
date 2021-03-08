@@ -43,13 +43,13 @@
           width: 100%;
           border-radius: 5px;
           font-size: 14px;
-          color: $black;
+          color: rgba(255, 255, 255, 0.88);
           font-weight: 600;
           max-width: none;
           background-color: $bg-dark;
           &::placeholder {
             font-weight: 300;
-            color: rgba(240, 240, 240, 0.7);
+            color: rgba(255, 255, 255, 0.88);
           }
         }
       }

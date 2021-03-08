@@ -13231,6 +13231,7 @@ function handleEnded() {
 
 function handleDrag(event) {
   var value = event.target.value;
+  console.log("drag");
   videoPlayer.volume = value;
 
   if (value >= 0.6) {
@@ -13242,8 +13243,36 @@ function handleDrag(event) {
   }
 }
 
+var handleKeyEvent = function handleKeyEvent(event) {
+  var keyName = event.key;
+
+  switch (keyName) {
+    case " ":
+      event.preventDefault();
+      handlePlayClick();
+      break;
+
+    case "ArrowUp":
+      console.log(volumeRange);
+      console.log(volumeRange.value);
+      event.preventDefault();
+      volumeRange.value = volumeRange + 0.1;
+      videoPlayer.volume += 0.1;
+      break;
+
+    case "ArrowDown":
+      console.log(volumeRange.value);
+      event.preventDefault();
+      volumeRange.value -= 0.1;
+      videoPlayer.volume -= 0.1;
+      break;
+
+    default:
+  }
+};
+
 function init() {
-  videoPlayer.volume = 0.5;
+  videoPlayer.volume = 1;
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumnClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
@@ -13251,6 +13280,10 @@ function init() {
   videoPlayer.addEventListener("timeupdate", getCurrentTime);
   videoPlayer.addEventListener("ended", handleEnded);
   volumeRange.addEventListener("input", handleDrag);
+
+  if (videoPlayer) {
+    document.addEventListener("keydown", handleKeyEvent);
+  }
 }
 
 if (videoContainer) {

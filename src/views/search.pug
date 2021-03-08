@@ -2,9 +2,9 @@ extends layouts/main
 include mixins/videoBlock
 
 block content
-    .search__header
-        h3 Searching for: #{searchingBy}
-    .search__videos
+    //- .search__header
+    //-     h3 Searching for: #{searchingBy}
+    .search__videos.home-videos
         if videos.length === 0
             h5 No Videos Found
         each item in videos
@@ -12,5 +12,8 @@ block content
                 title:item.title,
                 views:item.views,
                 videoFile:item.fileUrl,
-                id:item.id
+                id:item.id,
+                creatorAvatarUrl:item.creator.avatarUrl,
+                creatorName:item.creator.name,
+                uploadTime:item.uploadTime
             })
