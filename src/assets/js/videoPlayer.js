@@ -79,7 +79,6 @@ async function setTotalTime() {
 
   const totalTimeString = formatDate(duration);
   totalTime.innerHTML = totalTimeString;
-  console.log(totalTimeString);
 }
 function handleEnded() {
   registerView();

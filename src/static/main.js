@@ -13207,9 +13207,8 @@ function _setTotalTime() {
             duration = _context.sent;
             totalTimeString = formatDate(duration);
             totalTime.innerHTML = totalTimeString;
-            console.log(totalTimeString);
 
-          case 9:
+          case 8:
           case "end":
             return _context.stop();
         }
