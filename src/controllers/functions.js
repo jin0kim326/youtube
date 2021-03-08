@@ -34,6 +34,5 @@ export const printCommentUploadTime = (comments) => {
   Array.from(comments).forEach((comment) => {
     comment.uploadTime = timeForToday(comment.createdAt);
     comment.save();
-    console.log(timeForToday(comment.createdAt));
   });
 };

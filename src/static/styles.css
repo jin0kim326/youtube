@@ -226,7 +226,9 @@ textarea,
 button {
   border: none;
   background-color: #ea232c;
-  color: white; }
+  color: white;
+  text-decoration: none;
+  outline: none; }
 
 button.delete {
   background-color: #bb2f2a; }

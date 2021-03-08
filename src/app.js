@@ -10,6 +10,7 @@ import MongoStore from "connect-mongo";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import path from "path";
+import flash from "express-flash";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -39,6 +40,7 @@ app.use(
     store: new CokieStore({ mongooseConnection: mongoose.connection }),
   })
 );
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());

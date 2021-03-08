@@ -41,6 +41,8 @@ button {
   border: none;
   background-color: $red;
   color: white;
+  text-decoration: none;
+  outline: none;
 }
 
 button.delete {

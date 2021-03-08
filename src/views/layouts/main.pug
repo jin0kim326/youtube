@@ -7,6 +7,12 @@ html
         //- meta(content="script-src:'unsafe-inline'")
     body
         include ../partials/header
+        if messages.error
+            span=messages.error
+        else if messages.info
+            span=messages.info
+        else if messages.success
+            span=messages.success
         main
             block content
         include ../partials/footer 
