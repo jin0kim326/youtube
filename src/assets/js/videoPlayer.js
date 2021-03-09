@@ -132,7 +132,7 @@ function init() {
   playBtn.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumnClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
-  videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  // videoPlayer.addEventListener("loadedmetadata", setTotalTime);
   videoPlayer.addEventListener("timeupdate", getCurrentTime);
   videoPlayer.addEventListener("ended", handleEnded);
   volumeRange.addEventListener("input", handleDrag);
@@ -143,4 +143,5 @@ function init() {
 
 if (videoContainer) {
   init();
+  setTotalTime();
 }
