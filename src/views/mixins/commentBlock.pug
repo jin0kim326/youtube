@@ -1,9 +1,10 @@
 mixin commentBlock(comment={})
     li.commentBlock
-        img.u-avatar--comment(src=comment.avatarUrl)
+        a(href=routes.userDetail(comment.creator.id))
+            img.u-avatar--comment(src=comment.avatarUrl)
         .commentBlock-main
             .commentBlock-user
-                a(href=routes.userDetail(comment.creator))
+                a(href=routes.userDetail(comment.creator.id))
                     span.comment-username=comment.name
                 span.comment-uploadTime=comment.uploadTime
             .commentBlock-text
